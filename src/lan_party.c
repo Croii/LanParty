@@ -11,13 +11,13 @@
 
 void computeScores(TeamNode *head) {
 
-    PlayerNode *player = head->infoTeam.players;
+    PlayerNode *player = head->players;
     int score = 0;
     while (player != NULL) {
-        score += player->infoPlayer.points;
+        score += player->points;
         player = player->nextPlayer;
     }
-    head->infoTeam.score = score;
+    head->score = score;
 }
 
 void computeAllScores(TeamNode *head) {
@@ -71,10 +71,10 @@ int main(int argc, char **argv) {
     if (TASK5) {
     }
 
-    /*
-        showTeams(teams);
+    
         computeAllScores(teams);
-        removeTeams(&teams);
-        showTeams(teams);
-        freeTeams(&teams); */
+        removeTeams(&teams, teamsFilePath);
+       // showTeams(teams, 1);
+        //free(*argv);
+        printf("1"); 
 }

@@ -1,25 +1,29 @@
 #ifndef TEAM_STRUCTURE_H
 #define TEAM_STRUCTURE_H
 
-typedef struct Player {
+/* typedef struct Player {
     char *firstName;
     char *secondName;
     int points;
-} Player;
+} Player; */
 
 typedef struct PlayerNode {
-    Player infoPlayer;
+    char *firstName;
+    char *secondName;
+    int points;
     struct PlayerNode *nextPlayer;
 } PlayerNode;
 
-typedef struct Team {
+/* typedef struct Team {
     PlayerNode *players;
     char *teamName;
     int score;
-} Team;
+} Team; */
 
 typedef struct TeamNode {
-    Team infoTeam;
+    PlayerNode *players;
+    char *teamName;
+    int score;
     struct TeamNode *nextTeam;
 } TeamNode;
 

@@ -5,10 +5,10 @@
 
 #include <stdio.h>
 
-void addPlayerAtBeginning(PlayerNode **team);
-void addPlayerAtEnd(PlayerNode **team);
-void readPlayers(TeamNode **team, int numberOfPlayers, FILE *inputFile);
-void showPlayers(Team *team);
-void freePlayers(PlayerNode **player);
+void addPlayerAtBeginning(PlayerNode **head);
+void addPlayerAtEnd(PlayerNode **head);
+void readPlayers(TeamNode **head, int numberOfPlayers, FILE *inputFile);
+void showPlayers(PlayerNode *head);
+void freePlayers(PlayerNode **head);
 
 #endif

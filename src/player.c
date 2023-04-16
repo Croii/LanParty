@@ -5,13 +5,13 @@
 #include <string.h>
 
 //displays all players from a team
-void showPlayers(Team *head) {
-    while (head->players != NULL) {
-        printf("%s ", head->players->infoPlayer.secondName);
-        printf("%s ", head->players->infoPlayer.firstName);
-        printf("%d ", head->players->infoPlayer.points);
+void showPlayers(PlayerNode *head) {
+    while (head != NULL) {
+        printf("%s ", head->secondName);
+        printf("%s ", head->firstName);
+        printf("%d ", head->points);
         printf("\n");
-        head->players = head->players->nextPlayer;
+        head = head->nextPlayer;
     }
 }
 
@@ -22,28 +22,28 @@ void readPlayers(TeamNode **team, int numberOfPlayers, FILE *inputFile) {
 
     char buffer[50];
     fscanf(inputFile, "%s", buffer);
-    currentPlayer->infoPlayer.secondName = (char *)malloc(strlen(buffer) + 1);
-    strcpy(currentPlayer->infoPlayer.secondName, buffer);
+    currentPlayer->secondName = (char *)malloc(strlen(buffer) + 1);
+    strcpy(currentPlayer->secondName, buffer);
 
     fscanf(inputFile, "%s", buffer);
-    currentPlayer->infoPlayer.firstName = (char *)malloc(strlen(buffer) + 1);
-    strcpy(currentPlayer->infoPlayer.firstName, buffer);
+    currentPlayer->firstName = (char *)malloc(strlen(buffer) + 1);
+    strcpy(currentPlayer->firstName, buffer);
 
-    fscanf(inputFile, "%d", &currentPlayer->infoPlayer.points);
-    (*team)->infoTeam.players = currentPlayer;
+    fscanf(inputFile, "%d", &currentPlayer->points);
+    (*team)->players = currentPlayer;
     for (int playerIndex = 1; playerIndex < numberOfPlayers; playerIndex++) {
         addPlayerAtEnd(&currentPlayer);
         currentPlayer = currentPlayer->nextPlayer;
 
         fscanf(inputFile, "%s", buffer);
-        currentPlayer->infoPlayer.secondName = (char *)malloc(strlen(buffer) + 1);
-        strcpy(currentPlayer->infoPlayer.secondName, buffer);
+        currentPlayer->secondName = (char *)malloc(strlen(buffer) + 1);
+        strcpy(currentPlayer->secondName, buffer);
 
         fscanf(inputFile, "%s", buffer);
-        currentPlayer->infoPlayer.firstName = (char *)malloc(strlen(buffer) + 1);
-        strcpy(currentPlayer->infoPlayer.firstName, buffer);
+        currentPlayer->firstName = (char *)malloc(strlen(buffer) + 1);
+        strcpy(currentPlayer->firstName, buffer);
 
-        fscanf(inputFile, "%d", &currentPlayer->infoPlayer.points);
+        fscanf(inputFile, "%d", &currentPlayer->points);
     }
 }
 
@@ -72,8 +72,8 @@ void addPlayerAtEnd(PlayerNode **head) {
 void freePlayers(PlayerNode **head) {
     PlayerNode *aux = *head;
     while (*head != NULL) {
-        free((*head)->infoPlayer.secondName);
-        free((*head)->infoPlayer.firstName);
+        free((*head)->secondName);
+        free((*head)->firstName);
         aux = (*head)->nextPlayer;
         free(*head);
         *head = aux;

@@ -9,18 +9,19 @@
 void freeTeams(TeamNode **head) {
     TeamNode *aux = *head;
     while (*head != NULL) {
-        free((*head)->infoTeam.teamName);
-        freePlayers(&(*head)->infoTeam.players);
+        free((*head)->teamName);
+        freePlayers(&(*head)->players);
         aux = (*head)->nextTeam;
         free(*head);
         *head = aux;
     }
+    (*head) = NULL;
 }
 
 void showTeams(TeamNode *teams, char *outputPath) {
     FILE *outputFile = fopen(outputPath, "at");
     while (teams != NULL) {
-        fprintf(outputFile, "%s", teams->infoTeam.teamName);
+        fprintf(outputFile, "%s", teams->teamName);
         teams = teams->nextTeam;
     }
 
@@ -41,9 +42,9 @@ void readTeams(TeamNode **teams, char *filePath) {
     char buffer[50];
     fgetc(inputFile);
     fgets(buffer, 50, inputFile);
-    currentTeam->infoTeam.teamName = (char *)malloc(strlen(buffer) + 1);
-    currentTeam->infoTeam.score = 0;
-    strcpy(currentTeam->infoTeam.teamName, buffer);
+    currentTeam->teamName = (char *)malloc(strlen(buffer) + 1);
+    currentTeam->score = 0;
+    strcpy(currentTeam->teamName, buffer);
 
     readPlayers(&currentTeam, numberOfPlayers, inputFile);
 
@@ -53,8 +54,8 @@ void readTeams(TeamNode **teams, char *filePath) {
         fgetc(inputFile);
         fgets(buffer, 50, inputFile);
         addTeamAtBeginning(&currentTeam);
-        currentTeam->infoTeam.teamName = (char *)malloc(strlen(buffer) + 1);
-        strcpy(currentTeam->infoTeam.teamName, buffer);
+        currentTeam->teamName = (char *)malloc(strlen(buffer) + 1);
+        strcpy(currentTeam->teamName, buffer);
         readPlayers(&currentTeam, numberOfPlayers, inputFile);
         fgetc(inputFile);
     }
@@ -86,8 +87,8 @@ void addTeamAtEnd(TeamNode **head) {
 int findLowestScore(TeamNode *head) {
     int lowestScore = 2147483647;
     while (head != NULL) {
-        if (lowestScore > head->infoTeam.score)
-            lowestScore = head->infoTeam.score;
+        if (lowestScore > head->score)
+            lowestScore = head->score;
         head = head->nextTeam;
     }
     return lowestScore;
@@ -104,20 +105,20 @@ void removeTeams(TeamNode **teams, char *teamsFilePath) {
     //removing teams till there are exactly a power of 2 number of teams
     for (int i = 0; i < numberOfTeams - necessaryNumberOfTeams; i++) {
         int lowestScore = findLowestScore(*teams);
-        if ((*teams)->infoTeam.score == lowestScore) {
+        if ((*teams)->score == lowestScore) {
             TeamNode *aux = *teams;
             *teams = (*teams)->nextTeam;
-            free(aux->infoTeam.teamName);
-            freePlayers(&aux->infoTeam.players);
+            free(aux->teamName);
+            freePlayers(&aux->players);
             free(aux);
 
         } else {
             TeamNode *teamsCopy = *teams;
-            while (teamsCopy->nextTeam->infoTeam.score != lowestScore)
+            while (teamsCopy->nextTeam->score != lowestScore)
                 teamsCopy = teamsCopy->nextTeam;
 
-            free(teamsCopy->nextTeam->infoTeam.teamName);
-            freePlayers(&teamsCopy->nextTeam->infoTeam.players);
+            free(teamsCopy->nextTeam->teamName);
+            freePlayers(&teamsCopy->nextTeam->players);
             TeamNode *aux = teamsCopy->nextTeam;
             teamsCopy->nextTeam = aux->nextTeam;
             free(aux);
