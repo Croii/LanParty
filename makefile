@@ -7,3 +7,6 @@ checker:
 	 ./checker/checker.sh
 clean:
 	rm -f src/lanParty
+valgr:
+	make build
+	valgrind --leak-check=yes src/lanParty src/ioFiles/c.in src/ioFiles/d.in src/ioFiles/r.out
