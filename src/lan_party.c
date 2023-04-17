@@ -1,7 +1,7 @@
 #include "..//include//player.h"
 #include "..//include//team.h"
 #include "..//include//match.h"
-
+#include "..//include//trees.h"
 
 #include <math.h>
 #include <stdio.h>
@@ -90,12 +90,22 @@ int main(int argc, char **argv) {
             
             teamsQueue = createQueueTeam();
             preparingMatches(teamsQueue, &teams);
-            
             TeamNode *lastWinners = NULL;
             simulatingMatches(teamsQueue, &numberOfTeams, outputFilePath, taskToExecute, &lastWinners);
             
-            showTeams(lastWinners, outputFilePath);
+            TreeNode *root = NULL;
+            sortNodesByName(lastWinners);
+            initTree(&root, lastWinners);
+            // /lastWinners = lastWinners->nextTeam;
+            
 
+            //showTeams(lastWinners, outputFilePath);
+            FILE *outputFile = fopen(outputFilePath, "at");
+            fprintf(outputFile, "\nTOP 8 TEAMS:\n");
+            fclose(outputFile);
+
+            buildTree(root, lastWinners->nextTeam);
+            printDescending(root, outputFilePath);
             break;
         case 5:
             break;

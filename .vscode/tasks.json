@@ -11,6 +11,7 @@
                 "C:\\Users\\rever\\Documents\\TemaPa\\src\\player.c",
                 "C:\\Users\\rever\\Documents\\TemaPa\\src\\team.c",
                 "C:\\Users\\rever\\Documents\\TemaPa\\src\\match.c",
+                "C:\\Users\\rever\\Documents\\TemaPa\\src\\trees.c",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-lm"
