@@ -91,7 +91,7 @@ void pushWithDuplicate(TeamNode **top , TeamNode *data) {
     newNode->teamName = (char*)malloc(sizeof(char) * (strlen(data->teamName) + 1));
     strcpy(newNode->teamName, data->teamName);
     newNode->score = data->score;
-
+    newNode->players = NULL;
     newNode->nextTeam = *top;
     *top = newNode;
 }
