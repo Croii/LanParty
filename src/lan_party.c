@@ -1,5 +1,7 @@
-#include "../include/player.h"
-#include "../include/team.h"
+#include "..//include//player.h"
+#include "..//include//team.h"
+#include "..//include//match.h"
+
 
 #include <math.h>
 #include <stdio.h>
@@ -12,12 +14,14 @@
 void computeScores(TeamNode *head) {
 
     PlayerNode *player = head->players;
-    int score = 0;
+    float score = 0;
+    int numberOfPlayers = 0;
     while (player != NULL) {
         score += player->points;
         player = player->nextPlayer;
+        numberOfPlayers++;
     }
-    head->score = score;
+    head->score = score / numberOfPlayers;
 }
 
 void computeAllScores(TeamNode *head) {
@@ -39,6 +43,7 @@ int main(int argc, char **argv) {
     FILE *taskFile = fopen(tasksFilePath, "rt");
     for (int i = 0; i < TASKS; i++)
         fscanf(taskFile, "%d", &tasks[i]);
+    fclose(taskFile);
 
     //finding the right task to execute
     int TASK1 = tasks[0] == 1 && tasks[1] == 0 && tasks[2] == 0 && tasks[3] == 0 && tasks[4] == 0;
@@ -50,7 +55,8 @@ int main(int argc, char **argv) {
     // clearing file input
     fclose(fopen(outputFilePath, "wt"));
     TeamNode *teams = NULL;
-    readTeams(&teams, teamsFilePath);
+    int numberOfTeams = 0;
+    readTeams(&teams, teamsFilePath, &numberOfTeams);
 
      if (TASK1) {
         showTeams(teams, outputFilePath);
@@ -58,11 +64,24 @@ int main(int argc, char **argv) {
 
      if (TASK2) {
         computeAllScores(teams);
-        removeTeams(&teams, teamsFilePath);
+        removeTeams(&teams, teamsFilePath, &numberOfTeams);
         showTeams(teams, outputFilePath);
     }
-
+    
+    
+    TeamsQueue *teamsQueue = NULL;
     if (TASK3) {
+        computeAllScores(teams);
+        removeTeams(&teams, teamsFilePath, &numberOfTeams);
+        showTeams(teams, outputFilePath);
+        teamsQueue = createQueueTeam();
+        //showTeams(teams, outputFilePath);
+        preparingMatches(teamsQueue, &teams);
+        simulatingMatches(teamsQueue, &numberOfTeams, outputFilePath);
+      
+        
+        //printQueue(*teamsQueue, outputFilePath);
+
     }
 
     if (TASK4) {
@@ -72,9 +91,7 @@ int main(int argc, char **argv) {
     }
 
     
-        computeAllScores(teams);
-        removeTeams(&teams, teamsFilePath);
-       // showTeams(teams, 1);
+
+        //freeTeams(&teams);
         //free(*argv);
-        printf("1"); 
 }

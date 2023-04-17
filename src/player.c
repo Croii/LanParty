@@ -1,8 +1,9 @@
-#include "../include/player.h"
+#include "..//include//player.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 
 //displays all players from a team
 void showPlayers(PlayerNode *head) {
@@ -78,4 +79,16 @@ void freePlayers(PlayerNode **head) {
         free(*head);
         *head = aux;
     }
+}
+void removeEnding(char *text) {
+    while(*text != 0) {
+        if (*text == (char)13 || *text == (char)10) {
+            *text = 0;
+            return;
+        }
+        //printf("hatz");
+        text++;
+    }
+
+
 }

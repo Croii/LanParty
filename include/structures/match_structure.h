@@ -3,9 +3,8 @@
 
 #include "team_structure.h"
 
-
-typedef struct TeamQueue {
+typedef struct TeamsQueue {
     TeamNode *front, *rear;
-} TeamQueue;
+} TeamsQueue;
 
 #endif

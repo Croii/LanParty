@@ -23,7 +23,7 @@ typedef struct PlayerNode {
 typedef struct TeamNode {
     PlayerNode *players;
     char *teamName;
-    int score;
+    float score;
     struct TeamNode *nextTeam;
 } TeamNode;
 

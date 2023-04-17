@@ -1,10 +1,13 @@
-#include "../include/team.h"
-#include "../include/player.h"
+#include "..//include//team.h"
+#include "..//include//player.h"
 
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
+
+#define EPS 1E-6
 
 void freeTeams(TeamNode **head) {
     TeamNode *aux = *head;
@@ -20,20 +23,20 @@ void freeTeams(TeamNode **head) {
 
 void showTeams(TeamNode *teams, char *outputPath) {
     FILE *outputFile = fopen(outputPath, "at");
+    fseek(outputFile, 0, SEEK_END);
     while (teams != NULL) {
-        fprintf(outputFile, "%s", teams->teamName);
+        fprintf(outputFile, "%s\n", teams->teamName);
         teams = teams->nextTeam;
     }
-
+    //
     fclose(outputFile);
 }
 
-void readTeams(TeamNode **teams, char *filePath) {
+void readTeams(TeamNode **teams, char *filePath, int *numberOfTeams) {
     FILE *inputFile = fopen(filePath, "rt");
     int numberOfPlayers = 0;
-    int numberOfTeams = 0;
 
-    fscanf(inputFile, "%d", &numberOfTeams);
+    fscanf(inputFile, "%d", numberOfTeams);
     TeamNode *currentTeam = NULL;
     addTeamAtBeginning(&currentTeam);
     *teams = currentTeam;
@@ -42,17 +45,29 @@ void readTeams(TeamNode **teams, char *filePath) {
     char buffer[50];
     fgetc(inputFile);
     fgets(buffer, 50, inputFile);
+    buffer[strlen(buffer) - 2] = 0;
+
+    for (int i = strlen(buffer); !isalnum(buffer[i]); i--) 
+        if(buffer[i] == ' ')
+            buffer[i] == 0;
+
+
     currentTeam->teamName = (char *)malloc(strlen(buffer) + 1);
     currentTeam->score = 0;
     strcpy(currentTeam->teamName, buffer);
 
     readPlayers(&currentTeam, numberOfPlayers, inputFile);
 
-    for (int teamIndex = 1; teamIndex < numberOfTeams; teamIndex++) {
+    for (int teamIndex = 1; teamIndex < *numberOfTeams; teamIndex++) {
 
         fscanf(inputFile, "%d", &numberOfPlayers);
         fgetc(inputFile);
         fgets(buffer, 50, inputFile);
+        removeEnding(buffer);
+        //buffer[strlen(buffer) - 2] = 0;
+        if (buffer[strlen(buffer) - 1] == ' ')
+            buffer[strlen(buffer) - 1] = 0;
+
         addTeamAtBeginning(&currentTeam);
         currentTeam->teamName = (char *)malloc(strlen(buffer) + 1);
         strcpy(currentTeam->teamName, buffer);
@@ -84,8 +99,8 @@ void addTeamAtEnd(TeamNode **head) {
 }
 
 //given the first team, it return the lowest score of all teams
-int findLowestScore(TeamNode *head) {
-    int lowestScore = 2147483647;
+float findLowestScore(TeamNode *head) {
+    float lowestScore = 2147483647;
     while (head != NULL) {
         if (lowestScore > head->score)
             lowestScore = head->score;
@@ -93,19 +108,16 @@ int findLowestScore(TeamNode *head) {
     }
     return lowestScore;
 }
-void removeTeams(TeamNode **teams, char *teamsFilePath) {
-    FILE *inputFile = fopen(teamsFilePath, "rt");
-    int numberOfTeams = 0;
-    fscanf(inputFile, "%d", &numberOfTeams);
-    fclose(inputFile);
+void removeTeams(TeamNode **teams, char *teamsFilePath, int *numberOfTeams) {
+    
 
     //computing the number of teams knowing that there should be exactly a power of 2  
-    int necessaryNumberOfTeams = (1 << (int)log2f((float)numberOfTeams));
+    int necessaryNumberOfTeams = (1 << (int)log2f((float)(*numberOfTeams)));
 
     //removing teams till there are exactly a power of 2 number of teams
-    for (int i = 0; i < numberOfTeams - necessaryNumberOfTeams; i++) {
-        int lowestScore = findLowestScore(*teams);
-        if ((*teams)->score == lowestScore) {
+    for (int i = 0; i < *numberOfTeams - necessaryNumberOfTeams; i++) {
+        float lowestScore = findLowestScore(*teams);
+        if (((*teams)->score - lowestScore) < EPS) {
             TeamNode *aux = *teams;
             *teams = (*teams)->nextTeam;
             free(aux->teamName);
@@ -124,4 +136,5 @@ void removeTeams(TeamNode **teams, char *teamsFilePath) {
             free(aux);
             }
     }
+    (*numberOfTeams) = necessaryNumberOfTeams;
 }
