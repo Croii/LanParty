@@ -85,6 +85,18 @@ void push(TeamNode **top , TeamNode **data) {
     *top = newNode;
 }
 
+void pushWithDuplicate(TeamNode **top , TeamNode *data) {
+    TeamNode* newNode = (TeamNode*)malloc(sizeof(TeamNode));
+    //copy data from a given team node
+    newNode->teamName = (char*)malloc(sizeof(char) * (strlen(data->teamName) + 1));
+    strcpy(newNode->teamName, data->teamName);
+    newNode->score = data->score;
+
+    newNode->nextTeam = *top;
+    *top = newNode;
+}
+
+
 void preparingMatches(TeamsQueue *teamQueue, TeamNode **head) {
     TeamNode *aux = NULL;
     while (*head != NULL) {
@@ -123,7 +135,7 @@ void printRound(TeamsQueue *teamsQueue, int round, char *outputFilePath) {
     fclose(outputFile);
 }
 
-void simulatingMatches(TeamsQueue *teamsQueue, int *numberOfTeams, char *outputFilePath) {
+void simulatingMatches(TeamsQueue *teamsQueue, int *numberOfTeams, char *outputFilePath, int task, TeamNode** lastWinners) {
     FILE *outputFile = fopen(outputFilePath, "at");
     fprintf(outputFile, "\n");
     fclose(outputFile);
@@ -152,7 +164,15 @@ void simulatingMatches(TeamsQueue *teamsQueue, int *numberOfTeams, char *outputF
         
 
         printWinners(winnersStack, outputFilePath, round, *numberOfTeams);
+        
+        if (*numberOfTeams == 16 && task > 3) {
+            TeamNode *aux = winnersStack;
+            while (aux != NULL) {
+                pushWithDuplicate(lastWinners, aux);
+                aux = aux->nextTeam;
 
+            } 
+        }
         while(!isStackEmpty(winnersStack)) {
             TeamNode *aux = pop(&winnersStack);
             enQueueTeam(teamsQueue, &aux);
@@ -166,6 +186,7 @@ void simulatingMatches(TeamsQueue *teamsQueue, int *numberOfTeams, char *outputF
         
         round++;
     }
+    
 
 }
 
@@ -186,7 +207,9 @@ void printWinners(TeamNode *stackTop, char *outputFilePath, int round, int numbe
     while (stackTop != NULL) {
         fprintf(outputFile, "%-34s-  %0.2f\n", stackTop->teamName, stackTop->score);
         stackTop = stackTop->nextTeam;
+
     }
+
     if(numberOfPlayers != 2)
     fprintf(outputFile, "\n");
     fclose(outputFile);

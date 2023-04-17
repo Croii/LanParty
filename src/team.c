@@ -23,7 +23,7 @@ void freeTeams(TeamNode **head) {
 
 void showTeams(TeamNode *teams, char *outputPath) {
     FILE *outputFile = fopen(outputPath, "at");
-    fseek(outputFile, 0, SEEK_END);
+   
     while (teams != NULL) {
         fprintf(outputFile, "%s\n", teams->teamName);
         teams = teams->nextTeam;

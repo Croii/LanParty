@@ -74,22 +74,33 @@ int main(int argc, char **argv) {
             break;
         case 3:
 
-            TeamsQueue *teamsQueue = NULL;
             computeAllScores(teams);
             removeTeams(&teams, teamsFilePath, &numberOfTeams);
             showTeams(teams, outputFilePath);
-            teamsQueue = createQueueTeam();
-            //showTeams(teams, outputFilePath);
+            
+            TeamsQueue *teamsQueue = createQueueTeam();
             preparingMatches(teamsQueue, &teams);
-            simulatingMatches(teamsQueue, &numberOfTeams, outputFilePath);
+            simulatingMatches(teamsQueue, &numberOfTeams, outputFilePath, taskToExecute, NULL);
+
             break;
         case 4:
+            computeAllScores(teams);
+            removeTeams(&teams, teamsFilePath, &numberOfTeams);
+            showTeams(teams, outputFilePath);
+            
+            teamsQueue = createQueueTeam();
+            preparingMatches(teamsQueue, &teams);
+            
+            TeamNode *lastWinners = NULL;
+            simulatingMatches(teamsQueue, &numberOfTeams, outputFilePath, taskToExecute, &lastWinners);
+            
+            showTeams(lastWinners, outputFilePath);
+
             break;
         case 5:
             break;
 }
     
-
         //freeTeams(&teams);
         //free(*argv);
 }
