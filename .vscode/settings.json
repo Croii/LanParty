@@ -3,7 +3,14 @@
         "player.h": "c",
         "match_structure.h": "c",
         "stdio.h": "c",
-        "team_structure.h": "c"
+        "team_structure.h": "c",
+        "math.h": "c",
+        "stdlib.h": "c",
+        "string.h": "c",
+        "trees.h": "c",
+        "team.h": "c",
+        "match.h": "c",
+        "trees_structure.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

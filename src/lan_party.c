@@ -11,6 +11,26 @@
 
 #define TASKS 5
 
+void reverse(TeamNode** head_ref)
+{
+     TeamNode* prev = NULL;
+     TeamNode* current = *head_ref;
+     TeamNode* next = NULL;
+    while (current != NULL) {
+        // Store next
+        next = current->nextTeam;
+ 
+        // Reverse current node's pointer
+        current->nextTeam = prev;
+ 
+        // Move pointers one position ahead.
+        prev = current;
+        current = next;
+    }
+    *head_ref = prev;
+}
+
+
 void computeScores(TeamNode *head) {
 
     PlayerNode *player = head->players;
@@ -34,8 +54,8 @@ void computeAllScores(TeamNode *head) {
 int main(int argc, char **argv) {
 
     //input from command line
-    char *tasksFilePath = argv[1];
-    char *teamsFilePath = argv[2];
+    char *tasksFilePath  = argv[1];
+    char *teamsFilePath  = argv[2];
     char *outputFilePath = argv[3];
 
     //reading tasks from file
@@ -49,13 +69,8 @@ int main(int argc, char **argv) {
     }
     
     fclose(taskFile);
-
-    
-    
-    
     // clearing file input
     fclose(fopen(outputFilePath, "wt"));
-
 
     TeamNode *teams = NULL;
     int numberOfTeams = 0;
@@ -106,8 +121,54 @@ int main(int argc, char **argv) {
 
             buildTree(root, lastWinners->nextTeam);
             printDescending(root, outputFilePath);
+
+
             break;
         case 5:
+            computeAllScores(teams);
+            removeTeams(&teams, teamsFilePath, &numberOfTeams);
+            showTeams(teams, outputFilePath);
+            
+            teamsQueue = createQueueTeam();
+            preparingMatches(teamsQueue, &teams);
+            lastWinners = NULL;
+            simulatingMatches(teamsQueue, &numberOfTeams, outputFilePath, taskToExecute, &lastWinners);
+            
+            root = NULL;
+            
+            sortNodesByName(lastWinners);
+            initTree(&root, lastWinners);
+            // /lastWinners = lastWinners->nextTeam;
+            
+
+            //showTeams(lastWinners, outputFilePath);
+            outputFile = fopen(outputFilePath, "at");
+            fprintf(outputFile, "\nTOP 8 TEAMS:\n");
+            fclose(outputFile);
+
+            buildTree(root, lastWinners->nextTeam);
+            printDescending(root, outputFilePath);
+
+            
+            TeamNode *listForAvl = NULL;
+            extractFromBstToList(root, &listForAvl);
+            
+            sortNodesByName(listForAvl);
+            TreeNode *rootAvl = NULL;
+            //reverse(&listForAvl);
+            
+            insertFromListToAvl(&rootAvl, &listForAvl);
+
+            //WinsertFromBstToAVL(root, &rootAvl);
+
+            //printPostOrder(rootAvl, outputFilePath);
+            outputFile = fopen(outputFilePath, "at");
+            fprintf(outputFile, "\nTHE LEVEL 2 TEAMS ARE: \n");
+            fclose(outputFile);
+
+            printLevel(rootAvl, 3, outputFilePath);
+
+
             break;
 }
     
