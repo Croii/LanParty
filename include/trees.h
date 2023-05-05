@@ -1,7 +1,7 @@
 #include "structures//trees_structure.h"
 
 TreeNode *newNode(TeamNode *data);
-void initTree(TreeNode **root, TeamNode *d);
+void initTree(TreeNode **root, TeamNode *value);
 TreeNode *insert(TreeNode *node, TeamNode *team);
 void buildTree(TreeNode *root, TeamNode *team);
 void printDescending(TreeNode *root, char *outputFilePath);
@@ -21,3 +21,4 @@ void extractFromBstToList(TreeNode *root, TeamNode **listForAvl);
 void insertInList(TeamNode **root, TreeNode **value);
 void insertFromListToAvl(TreeNode **rootAvl, TeamNode **listAvl);
 void sortNodesByValue(TeamNode *team);
+void freeTree(TreeNode **root);

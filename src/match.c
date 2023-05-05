@@ -165,7 +165,7 @@ void simulatingMatches(TeamsQueue *teamsQueue, int *numberOfTeams, char *outputF
 
         printWinners(winnersStack, outputFilePath, round, *numberOfTeams);
         
-        if (*numberOfTeams == 16 && task > 3) {
+        if (*numberOfTeams == 16 && task) {
             TeamNode *aux = winnersStack;
             while (aux != NULL) {
                 pushWithDuplicate(lastWinners, aux);

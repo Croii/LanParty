@@ -59,16 +59,14 @@ int main(int argc, char **argv) {
     char *outputFilePath = argv[3];
 
     //reading tasks from file
-    int taskToExecute = 0;
-    int aux;
-    FILE *taskFile = fopen(tasksFilePath, "rt");
-    for (int i = 0; i < TASKS; i++) {
-        fscanf(taskFile, "%d", &aux);
-        taskToExecute += aux;
+    int tasks[TASKS];
 
-    }
-    
+    FILE *taskFile = fopen(tasksFilePath, "rt");
+
+    for (int i = 0; i < TASKS; i++)
+        fscanf(taskFile, "%d", &tasks[i]);
     fclose(taskFile);
+
     // clearing file input
     fclose(fopen(outputFilePath, "wt"));
 
@@ -77,7 +75,43 @@ int main(int argc, char **argv) {
     
 
     readTeams(&teams, teamsFilePath, &numberOfTeams);
-    switch(taskToExecute) {
+    if (tasks[0] && !tasks[1]) {
+        showTeams(teams, outputFilePath);
+        
+    } else if (tasks[1]) {
+        computeAllScores(teams);
+        removeTeams(&teams, teamsFilePath, &numberOfTeams);
+        showTeams(teams, outputFilePath);
+    }
+
+    TeamsQueue *teamsQueue = NULL;
+    TeamNode *lastWinners = NULL;
+    if (tasks[2]) {
+        teamsQueue = createQueueTeam();
+        int taskToExecute = 3;
+        preparingMatches(teamsQueue, &teams);
+        simulatingMatches(teamsQueue, &numberOfTeams, outputFilePath, tasks[3] || tasks[4], &lastWinners);
+    }
+
+    TreeNode *root = NULL;
+    if (tasks[3]) {
+            
+            sortNodesByName(lastWinners);
+            
+            initTree(&root, lastWinners);
+           
+            FILE *outputFile = fopen(outputFilePath, "at");
+            fprintf(outputFile, "\nTOP 8 TEAMS:\n");
+            fclose(outputFile);
+
+            buildTree(root, lastWinners->nextTeam);
+            printDescending(root, outputFilePath);
+    }
+
+
+
+
+  /*   switch(taskToExecute) {
         case 1:
             showTeams(teams, outputFilePath);
             break;
@@ -165,13 +199,14 @@ int main(int argc, char **argv) {
             outputFile = fopen(outputFilePath, "at");
             fprintf(outputFile, "\nTHE LEVEL 2 TEAMS ARE: \n");
             fclose(outputFile);
+            printLevel(rootAvl,  3, outputFilePath);
+            freeTree(&root);
+            freeTree(&rootAvl);
 
             printLevel(rootAvl, 3, outputFilePath);
 
 
             break;
 }
-    
-        //freeTeams(&teams);
-        //free(*argv);
+ */
 }

@@ -25,11 +25,13 @@ TreeNode *insert(TreeNode *node, TeamNode *team) {
     return node;
 }
 
-void initTree(TreeNode **root, TeamNode *d) {
+void initTree(TreeNode **root, TeamNode *value) {
     *root = (TreeNode *)malloc(sizeof(TreeNode));
+    
+    (*root)->score = value->score;
+    (*root)->teamName = value->teamName;
+    
     (*root)->left = (*root)->right = NULL;
-    (*root)->score = d->score;
-    (*root)->teamName = d->teamName;
 }
 
 void buildTree(TreeNode *root, TeamNode *team) {
@@ -337,4 +339,15 @@ void insertFromListToAvl(TreeNode **rootAvl, TeamNode **listAvl) {
 
         free(aux);
     }
+}
+
+void freeTree(TreeNode **root) {
+    if (*root == NULL)
+        return;
+    
+    freeTree(&(*root)->left);
+    freeTree(&(*root)->right);
+    free((*root)->teamName);
+    free(*root);
+
 }
