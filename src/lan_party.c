@@ -96,8 +96,8 @@ int main(int argc, char **argv) {
     TreeNode *root = NULL;
     if (tasks[3]) {
             
-            sortNodesByName(lastWinners);
             
+            sortNodesByName(lastWinners);
             initTree(&root, lastWinners);
            
             FILE *outputFile = fopen(outputFilePath, "at");
@@ -108,6 +108,20 @@ int main(int argc, char **argv) {
             printDescending(root, outputFilePath);
     }
 
+    TreeNode *rootAvl = NULL;
+    if (tasks[4]) {
+            //extractFromBstToList(root, &listForAvl);
+            
+            insertFromBstToAVL(root, &rootAvl);
+
+            FILE *outputFile = fopen(outputFilePath, "at");
+            fprintf(outputFile, "\nTHE LEVEL 2 TEAMS ARE: \n");
+            fclose(outputFile);
+            printLevel(rootAvl,  3, outputFilePath);
+
+
+
+    }
 
 
 
