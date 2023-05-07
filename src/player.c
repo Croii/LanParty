@@ -77,6 +77,7 @@ void freePlayers(PlayerNode **head) {
         *head = aux;
     }
 }
+
 void removeEnding(char *text) {
     while (*text != 0) {
         if (*text == (char)13 || *text == (char)10) {

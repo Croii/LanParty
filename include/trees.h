@@ -3,7 +3,7 @@
 TreeNode *newNode(TeamNode *data);
 void initBstTree(TreeNode **root, TeamNode *value);
 TreeNode *insert(TreeNode *node, TeamNode *team);
-void buildBSTTree(TreeNode *root, TeamNode *team);
+void buildBstTree(TreeNode *root, TeamNode *team);
 void printDescending(TreeNode *root, char *outputFilePath);
 void sortNodesByName(TeamNode *team);
 TreeNode *LRRotation(TreeNode *Z);

@@ -25,6 +25,7 @@ TreeNode *insert(TreeNode *node, TeamNode *team) {
     return node;
 }
 
+//copy contents of value node
 void initBstTree(TreeNode **root, TeamNode *value) {
     *root = (TreeNode *)malloc(sizeof(TreeNode));
 
@@ -34,7 +35,7 @@ void initBstTree(TreeNode **root, TeamNode *value) {
     (*root)->left = (*root)->right = NULL;
 }
 
-void buildBSTTree(TreeNode *root, TeamNode *team) {
+void buildBstTree(TreeNode *root, TeamNode *team) {
     while (team != NULL) {
         insert(root, team);
         team = team->nextTeam;
@@ -124,7 +125,7 @@ TreeNode *insertAvl(TreeNode **node, TreeNode *value) {
     if (*node == NULL) {
         *node = (TreeNode *)calloc(1, sizeof(TreeNode));
         (*node)->score = value->score;
-        (*node)->teamName = (char *)malloc(sizeof(value->teamName));
+        (*node)->teamName = (char*)malloc(sizeof(value->teamName));
         strcpy((*node)->teamName, value->teamName);
         (*node)->height = 0;
         // optional

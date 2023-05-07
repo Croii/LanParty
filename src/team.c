@@ -49,7 +49,7 @@ void readTeams(TeamNode **teams, char *filePath, int *numberOfTeams) {
 
     for (int i = strlen(buffer); !isalnum(buffer[i]); i--)
         if (buffer[i] == ' ')
-            buffer[i] == 0;
+            buffer[i] = 0;
 
     currentTeam->teamName = (char *)malloc(strlen(buffer) + 1);
     currentTeam->score = 0;
@@ -99,7 +99,7 @@ void addTeamAtEnd(TeamNode **head) {
 
 // given the first team, it return the lowest score of all teams
 float findLowestScore(TeamNode *head) {
-    float lowestScore = 2147483647;
+    float lowestScore = __FLT_MAX__;
     while (head != NULL) {
         if (lowestScore > head->score)
             lowestScore = head->score;
@@ -135,4 +135,14 @@ void removeTeams(TeamNode **teams, char *teamsFilePath, int *numberOfTeams) {
         }
     }
     (*numberOfTeams) = necessaryNumberOfTeams;
+}
+
+void customFreeForList(TeamNode **head) {
+    TeamNode *aux = *head;
+    while (*head != NULL) {
+        aux = (*head)->nextTeam;
+        free(*head);
+        *head = aux;
+
+    }
 }

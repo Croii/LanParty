@@ -16,3 +16,6 @@ valgr:
 	clear
 #	valgrind --leak-check=full --show-leak-kinds=alloc,free src/lanParty src/ioFiles/c.in src/ioFiles/d.in src/ioFiles/r.out
 	valgrind --leak-check=full --show-leak-kinds=definite --trace-children=no src/lanParty src/ioFiles/c.in src/ioFiles/d.in src/ioFiles/r.out 2>&1 | grep -E "total heap usage"
+
+memoryChecker:
+	 ./checker/memoryChecker.sh

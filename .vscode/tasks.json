@@ -7,7 +7,7 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "C:\\Users\\rever\\Documents\\TemaPa\\src\\lan_party.c",
+                "C:\\Users\\rever\\Documents\\TemaPa\\src\\lanParty.c",
                 "C:\\Users\\rever\\Documents\\TemaPa\\src\\player.c",
                 "C:\\Users\\rever\\Documents\\TemaPa\\src\\team.c",
                 "C:\\Users\\rever\\Documents\\TemaPa\\src\\match.c",

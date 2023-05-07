@@ -69,29 +69,46 @@ int main(int argc, char **argv) {
         int taskToExecute = 3;
         preparingMatches(teamsQueue, &teams);
         simulatingMatches(teamsQueue, &numberOfTeams, outputFilePath, tasks[3] || tasks[4], &lastWinners);
+        free(teamsQueue);
     }
 
-    TreeNode *root = NULL;
+    TreeNode *rootBst = NULL;
     if (tasks[3]) {
 
         sortNodesByName(lastWinners);
-        initBstTree(&root, lastWinners);
+        initBstTree(&rootBst, lastWinners);
 
         FILE *outputFile = fopen(outputFilePath, "at");
         fprintf(outputFile, "\nTOP 8 TEAMS:\n");
         fclose(outputFile);
-        buildBSTTree(root, lastWinners->nextTeam);
-        printDescending(root, outputFilePath);
+        buildBstTree(rootBst, lastWinners->nextTeam);
+        printDescending(rootBst, outputFilePath);
+        customFreeForList(&lastWinners);
     }
 
     TreeNode *rootAvl = NULL;
     if (tasks[4]) {
         
-        insertFromBstToAVL(root, &rootAvl);
+        insertFromBstToAVL(rootBst, &rootAvl);
 
         FILE *outputFile = fopen(outputFilePath, "at");
         fprintf(outputFile, "\nTHE LEVEL 2 TEAMS ARE: \n");
         fclose(outputFile);
         printLevel(rootAvl, 3, outputFilePath);
     }
+
+
+    if (teams != NULL) {
+        freeTeams(&teams);
+    }
+
+    if (rootBst != NULL) {
+        freeTree(&rootBst);
+    }
+    
+    if (rootAvl != NULL) {
+        freeTree(&rootAvl);
+    }
+
+
 }

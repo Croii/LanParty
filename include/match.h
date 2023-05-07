@@ -18,5 +18,5 @@ void printQueue(TeamsQueue *q, char *outputFilePath);
 void printRound(TeamsQueue *teamsQueue, int round, char *outputFilePath);
 void printWinners(TeamNode *stackTop, char *outputFilePath, int round, int numberOfPlayers);
 void pushWithDuplicate(TeamNode **top, TeamNode *data);
-
+void customFreeForList(TeamNode **head);
 #endif

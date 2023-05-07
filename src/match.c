@@ -74,11 +74,6 @@ TeamNode *pop(TeamNode **top) {
 
 void push(TeamNode **top, TeamNode **data) {
     TeamNode *newNode = *data;
-    // copy data from a given team node
-    /*     newNode->players = data->players;
-        newNode->score = data->score;
-        newNode->teamName = data->teamName; */
-
     newNode->nextTeam = *top;
     *top = newNode;
 }
@@ -175,6 +170,11 @@ void simulatingMatches(TeamsQueue *teamsQueue, int *numberOfTeams, char *outputF
 
         round++;
     }
+
+    freePlayers(&teamsQueue->front->players);
+    free(teamsQueue->front->teamName);
+    free(teamsQueue->front);
+
 }
 
 void printQueue(TeamsQueue *q, char *outputFilePath) {
