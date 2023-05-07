@@ -1,11 +1,11 @@
 #include "..//include//team.h"
 #include "..//include//player.h"
 
+#include <ctype.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 #define EPS 1E-6
 
@@ -23,7 +23,7 @@ void freeTeams(TeamNode **head) {
 
 void printTeams(TeamNode *teams, char *outputPath) {
     FILE *outputFile = fopen(outputPath, "at");
-   
+
     while (teams != NULL) {
         fprintf(outputFile, "%s\n", teams->teamName);
         teams = teams->nextTeam;
@@ -47,10 +47,9 @@ void readTeams(TeamNode **teams, char *filePath, int *numberOfTeams) {
     fgets(buffer, 50, inputFile);
     buffer[strlen(buffer) - 2] = 0;
 
-    for (int i = strlen(buffer); !isalnum(buffer[i]); i--) 
-        if(buffer[i] == ' ')
+    for (int i = strlen(buffer); !isalnum(buffer[i]); i--)
+        if (buffer[i] == ' ')
             buffer[i] == 0;
-
 
     currentTeam->teamName = (char *)malloc(strlen(buffer) + 1);
     currentTeam->score = 0;
@@ -64,7 +63,7 @@ void readTeams(TeamNode **teams, char *filePath, int *numberOfTeams) {
         fgetc(inputFile);
         fgets(buffer, 50, inputFile);
         removeEnding(buffer);
-        //buffer[strlen(buffer) - 2] = 0;
+        // buffer[strlen(buffer) - 2] = 0;
         if (buffer[strlen(buffer) - 1] == ' ')
             buffer[strlen(buffer) - 1] = 0;
 
@@ -87,7 +86,7 @@ void addTeamAtBeginning(TeamNode **head) {
 
 void addTeamAtEnd(TeamNode **head) {
     TeamNode *aux = *head;
-    TeamNode *newTeam = (TeamNode*)malloc(sizeof(TeamNode));
+    TeamNode *newTeam = (TeamNode *)malloc(sizeof(TeamNode));
     if (*head == NULL)
         addTeamAtBeginning(head);
     else {
@@ -98,7 +97,7 @@ void addTeamAtEnd(TeamNode **head) {
     }
 }
 
-//given the first team, it return the lowest score of all teams
+// given the first team, it return the lowest score of all teams
 float findLowestScore(TeamNode *head) {
     float lowestScore = 2147483647;
     while (head != NULL) {
@@ -109,12 +108,11 @@ float findLowestScore(TeamNode *head) {
     return lowestScore;
 }
 void removeTeams(TeamNode **teams, char *teamsFilePath, int *numberOfTeams) {
-    
 
-    //computing the number of teams knowing that there should be exactly a power of 2  
+    // computing the number of teams knowing that there should be exactly a power of 2
     int necessaryNumberOfTeams = (1 << (int)log2f((float)(*numberOfTeams)));
 
-    //removing teams till there are exactly a power of 2 number of teams
+    // removing teams till there are exactly a power of 2 number of teams
     for (int i = 0; i < *numberOfTeams - necessaryNumberOfTeams; i++) {
         float lowestScore = findLowestScore(*teams);
         if (((*teams)->score - lowestScore) < EPS) {
@@ -134,7 +132,7 @@ void removeTeams(TeamNode **teams, char *teamsFilePath, int *numberOfTeams) {
             TeamNode *aux = teamsCopy->nextTeam;
             teamsCopy->nextTeam = aux->nextTeam;
             free(aux);
-            }
+        }
     }
     (*numberOfTeams) = necessaryNumberOfTeams;
 }

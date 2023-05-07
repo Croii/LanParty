@@ -4,8 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-//displays all players from a team
+// displays all players from a team
 void showPlayers(PlayerNode *head) {
     while (head != NULL) {
         printf("%s ", head->secondName);
@@ -16,7 +15,7 @@ void showPlayers(PlayerNode *head) {
     }
 }
 
-//it reads players from input file
+// it reads players from input file
 void readPlayers(TeamNode **team, int numberOfPlayers, FILE *inputFile) {
     PlayerNode *currentPlayer = NULL;
     addPlayerAtBeginning(&currentPlayer);
@@ -49,11 +48,10 @@ void readPlayers(TeamNode **team, int numberOfPlayers, FILE *inputFile) {
 }
 
 void addPlayerAtBeginning(PlayerNode **head) {
-    PlayerNode *newPlayer = (PlayerNode*)malloc(sizeof(PlayerNode));
+    PlayerNode *newPlayer = (PlayerNode *)malloc(sizeof(PlayerNode));
     newPlayer->nextPlayer = *head;
     *head = newPlayer;
 }
-
 
 void addPlayerAtEnd(PlayerNode **head) {
     PlayerNode *aux = *head;
@@ -68,8 +66,7 @@ void addPlayerAtEnd(PlayerNode **head) {
     }
 }
 
-
-//emptying memory for a player struct
+// emptying memory for a player struct
 void freePlayers(PlayerNode **head) {
     PlayerNode *aux = *head;
     while (*head != NULL) {
@@ -81,14 +78,11 @@ void freePlayers(PlayerNode **head) {
     }
 }
 void removeEnding(char *text) {
-    while(*text != 0) {
+    while (*text != 0) {
         if (*text == (char)13 || *text == (char)10) {
             *text = 0;
             return;
         }
-        //printf("hatz");
         text++;
     }
-
-
 }

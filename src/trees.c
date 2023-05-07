@@ -27,10 +27,10 @@ TreeNode *insert(TreeNode *node, TeamNode *team) {
 
 void initBstTree(TreeNode **root, TeamNode *value) {
     *root = (TreeNode *)malloc(sizeof(TreeNode));
-    
+
     (*root)->score = value->score;
     (*root)->teamName = value->teamName;
-    
+
     (*root)->left = (*root)->right = NULL;
 }
 
@@ -41,7 +41,7 @@ void buildBSTTree(TreeNode *root, TeamNode *team) {
     }
 }
 
-//inorder 
+// inorder
 void printDescending(TreeNode *root, char *outputFilePath) {
 
     if (root->right != NULL)
@@ -50,7 +50,7 @@ void printDescending(TreeNode *root, char *outputFilePath) {
     FILE *outputFile = fopen(outputFilePath, "at");
     fprintf(outputFile, "%-34s-  %.2f\n", root->teamName, root->score);
     fclose(outputFile);
-   
+
     if (root->left != NULL)
         printDescending(root->left, outputFilePath);
 }
@@ -69,16 +69,13 @@ void sortNodesByName(TeamNode *team) {
                 float auxIn = i->score;
                 i->score = j->score;
                 j->score = auxIn;
-
             }
 
             j = j->nextTeam;
         }
         i = i->nextTeam;
     }
-    
 }
-
 
 int max(int a, int b) {
     return ((a > b) ? a : b);
@@ -125,21 +122,20 @@ TreeNode *RightRotation(TreeNode *z) {
 TreeNode *insertAvl(TreeNode **node, TreeNode *value) {
     // 1. inserare nod
     if (*node == NULL) {
-        *node = (TreeNode*)calloc(1, sizeof(TreeNode));
+        *node = (TreeNode *)calloc(1, sizeof(TreeNode));
         (*node)->score = value->score;
-        (*node)->teamName = (char*)malloc(sizeof(value->teamName));
+        (*node)->teamName = (char *)malloc(sizeof(value->teamName));
         strcpy((*node)->teamName, value->teamName);
         (*node)->height = 0;
         // optional
         (*node)->left = (*node)->right = NULL;
         return (*node);
-       
     }
     if (value->score <= (*node)->score)
         (*node)->left = insertAvl(&(*node)->left, value);
     else
         (*node)->right = insertAvl(&(*node)->right, value);
-      // 2. updateaza inaltimea nodurilor stramos
+    // 2. updateaza inaltimea nodurilor stramos
     // de jos in sus la iesirea din apelul recurent
     (*node)->height = 1 + max(nodeHeight((*node)->left), nodeHeight((*node)->right));
     // 3. afla factorul de echilibru al nodului stramos
@@ -168,13 +164,12 @@ TreeNode *insertAvl(TreeNode **node, TreeNode *value) {
 
 // postorder
 void insertFromBstToAVL(TreeNode *rootBst, TreeNode **rootAvl) {
-     if (rootBst == NULL)
+    if (rootBst == NULL)
         return;
 
     insertFromBstToAVL(rootBst->right, rootAvl);
     (*rootAvl) = insertAvl(rootAvl, rootBst);
     insertFromBstToAVL(rootBst->left, rootAvl);
-
 }
 
 void printPostOrder(TreeNode *root, char *outputFilePath) {
@@ -202,36 +197,12 @@ void printLevel(TreeNode *root, int level, char *outputFilePath) {
     }
 }
 
-void insertInList(TeamNode **root, TreeNode **value) {
-    // build a node for list
-    TeamNode *node = calloc(1, sizeof(TeamNode));
-
-    if (*root == NULL) {
-        node->score = (*value)->score;
-        node->teamName = (*value)->teamName;
-        free(*value);
-        (*root) = node;
-        return;
-    }
-
-    node->score = (*value)->score;
-    node->teamName = (*value)->teamName;
-    free(*value);
-
-    TeamNode *aux = *root;
-    while (aux->nextTeam != NULL)
-        aux = aux->nextTeam;
-
-    aux->nextTeam = node;
-}
-
 void freeTree(TreeNode **root) {
     if (*root == NULL)
         return;
-    
+
     freeTree(&(*root)->left);
     freeTree(&(*root)->right);
     free((*root)->teamName);
     free(*root);
-
 }
