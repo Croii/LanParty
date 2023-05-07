@@ -1,286 +1,286 @@
-==29292== Memcheck, a memory error detector
-==29292== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==29292== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==29292== Command: ./src/lanParty checker/date/t15/c.in checker/date/t15/d.in checker/out/out15.out
-==29292== 
-==29292== Invalid write of size 1
-==29292==    at 0x484EE7C: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B102: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96ab8 is 0 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Invalid write of size 1
-==29292==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B102: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96ab9 is 1 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Invalid write of size 1
-==29292==    at 0x484EE7C: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B102: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B358: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96b78 is 0 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B358: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Invalid write of size 1
-==29292==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B102: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B358: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96b7b is 3 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B358: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Invalid write of size 1
-==29292==    at 0x484EE7C: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B102: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96c38 is 0 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Invalid write of size 1
-==29292==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B102: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96c3f is 7 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Invalid read of size 1
-==29292==    at 0x484ED24: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x49BDDB0: __vfprintf_internal (vfprintf-internal.c:1517)
-==29292==    by 0x49A7749: fprintf (fprintf.c:32)
-==29292==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96ab8 is 0 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Invalid read of size 1
-==29292==    at 0x49D4F8D: _IO_default_xsputn (genops.c:394)
-==29292==    by 0x49D4F8D: _IO_default_xsputn (genops.c:370)
-==29292==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
-==29292==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
-==29292==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
-==29292==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
-==29292==    by 0x49A7749: fprintf (fprintf.c:32)
-==29292==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96ab8 is 0 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Invalid read of size 1
-==29292==    at 0x49D4F99: _IO_default_xsputn (genops.c:394)
-==29292==    by 0x49D4F99: _IO_default_xsputn (genops.c:370)
-==29292==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
-==29292==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
-==29292==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
-==29292==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
-==29292==    by 0x49A7749: fprintf (fprintf.c:32)
-==29292==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96c39 is 1 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Invalid read of size 1
-==29292==    at 0x49D4FA8: _IO_default_xsputn (genops.c:394)
-==29292==    by 0x49D4FA8: _IO_default_xsputn (genops.c:370)
-==29292==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
-==29292==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
-==29292==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
-==29292==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
-==29292==    by 0x49A7749: fprintf (fprintf.c:32)
-==29292==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96c3a is 2 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Invalid read of size 1
-==29292==    at 0x49D4FB7: _IO_default_xsputn (genops.c:394)
-==29292==    by 0x49D4FB7: _IO_default_xsputn (genops.c:370)
-==29292==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
-==29292==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
-==29292==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
-==29292==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
-==29292==    by 0x49A7749: fprintf (fprintf.c:32)
-==29292==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96c3b is 3 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Invalid read of size 1
-==29292==    at 0x49D4FC6: _IO_default_xsputn (genops.c:394)
-==29292==    by 0x49D4FC6: _IO_default_xsputn (genops.c:370)
-==29292==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
-==29292==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
-==29292==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
-==29292==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
-==29292==    by 0x49A7749: fprintf (fprintf.c:32)
-==29292==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96c3c is 4 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Invalid read of size 1
-==29292==    at 0x49D4FD5: _IO_default_xsputn (genops.c:394)
-==29292==    by 0x49D4FD5: _IO_default_xsputn (genops.c:370)
-==29292==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
-==29292==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
-==29292==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
-==29292==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
-==29292==    by 0x49A7749: fprintf (fprintf.c:32)
-==29292==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96c3d is 5 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Invalid read of size 1
-==29292==    at 0x49D4FE4: _IO_default_xsputn (genops.c:394)
-==29292==    by 0x49D4FE4: _IO_default_xsputn (genops.c:370)
-==29292==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
-==29292==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
-==29292==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
-==29292==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
-==29292==    by 0x49A7749: fprintf (fprintf.c:32)
-==29292==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b96c3e is 6 bytes after a block of size 8 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== Syscall param write(buf) points to uninitialised byte(s)
-==29292==    at 0x4A5BA37: write (write.c:26)
-==29292==    by 0x49D1F6C: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1180)
-==29292==    by 0x49D3A60: new_do_write (fileops.c:448)
-==29292==    by 0x49D3A60: _IO_new_do_write (fileops.c:425)
-==29292==    by 0x49D3A60: _IO_do_write@@GLIBC_2.2.5 (fileops.c:422)
-==29292==    by 0x49D3057: _IO_file_close_it@@GLIBC_2.2.5 (fileops.c:135)
-==29292==    by 0x49C5E0E: fclose@@GLIBC_2.2.5 (iofclose.c:53)
-==29292==    by 0x10B488: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==  Address 0x4b983e8 is 8 bytes inside a block of size 512 alloc'd
-==29292==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==29292==    by 0x49C5C23: _IO_file_doallocate (filedoalloc.c:101)
-==29292==    by 0x49D4D5F: _IO_doallocbuf (genops.c:347)
-==29292==    by 0x49D3FDF: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
-==29292==    by 0x49D2754: _IO_new_file_xsputn (fileops.c:1243)
-==29292==    by 0x49D2754: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
-==29292==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
-==29292==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
-==29292==    by 0x49A7749: fprintf (fprintf.c:32)
-==29292==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
-==29292== 
-==29292== 
-==29292== HEAP SUMMARY:
-==29292==     in use at exit: 0 bytes in 0 blocks
-==29292==   total heap usage: 1,554 allocs, 1,554 frees, 54,029 bytes allocated
-==29292== 
-==29292== All heap blocks were freed -- no leaks are possible
-==29292== 
-==29292== Use --track-origins=yes to see where uninitialised values come from
-==29292== For lists of detected and suppressed errors, rerun with: -s
-==29292== ERROR SUMMARY: 79 errors from 15 contexts (suppressed: 0 from 0)
+==2361== Memcheck, a memory error detector
+==2361== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2361== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2361== Command: ./src/lanParty checker/date/t15/c.in checker/date/t15/d.in checker/out/out15.out
+==2361== 
+==2361== Invalid write of size 1
+==2361==    at 0x484EE7C: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B102: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96ab8 is 0 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Invalid write of size 1
+==2361==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B102: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96ab9 is 1 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Invalid write of size 1
+==2361==    at 0x484EE7C: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B102: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B358: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96b78 is 0 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B358: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Invalid write of size 1
+==2361==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B102: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B358: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96b7b is 3 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B358: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Invalid write of size 1
+==2361==    at 0x484EE7C: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B102: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96c38 is 0 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Invalid write of size 1
+==2361==    at 0x484EE8E: strcpy (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B102: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96c3f is 7 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Invalid read of size 1
+==2361==    at 0x484ED24: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x49BDDB0: __vfprintf_internal (vfprintf-internal.c:1517)
+==2361==    by 0x49A7749: fprintf (fprintf.c:32)
+==2361==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96ab8 is 0 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Invalid read of size 1
+==2361==    at 0x49D4F8D: _IO_default_xsputn (genops.c:394)
+==2361==    by 0x49D4F8D: _IO_default_xsputn (genops.c:370)
+==2361==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
+==2361==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==2361==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
+==2361==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
+==2361==    by 0x49A7749: fprintf (fprintf.c:32)
+==2361==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96ab8 is 0 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B327: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Invalid read of size 1
+==2361==    at 0x49D4F99: _IO_default_xsputn (genops.c:394)
+==2361==    by 0x49D4F99: _IO_default_xsputn (genops.c:370)
+==2361==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
+==2361==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==2361==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
+==2361==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
+==2361==    by 0x49A7749: fprintf (fprintf.c:32)
+==2361==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96c39 is 1 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Invalid read of size 1
+==2361==    at 0x49D4FA8: _IO_default_xsputn (genops.c:394)
+==2361==    by 0x49D4FA8: _IO_default_xsputn (genops.c:370)
+==2361==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
+==2361==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==2361==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
+==2361==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
+==2361==    by 0x49A7749: fprintf (fprintf.c:32)
+==2361==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96c3a is 2 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Invalid read of size 1
+==2361==    at 0x49D4FB7: _IO_default_xsputn (genops.c:394)
+==2361==    by 0x49D4FB7: _IO_default_xsputn (genops.c:370)
+==2361==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
+==2361==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==2361==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
+==2361==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
+==2361==    by 0x49A7749: fprintf (fprintf.c:32)
+==2361==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96c3b is 3 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Invalid read of size 1
+==2361==    at 0x49D4FC6: _IO_default_xsputn (genops.c:394)
+==2361==    by 0x49D4FC6: _IO_default_xsputn (genops.c:370)
+==2361==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
+==2361==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==2361==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
+==2361==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
+==2361==    by 0x49A7749: fprintf (fprintf.c:32)
+==2361==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96c3c is 4 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Invalid read of size 1
+==2361==    at 0x49D4FD5: _IO_default_xsputn (genops.c:394)
+==2361==    by 0x49D4FD5: _IO_default_xsputn (genops.c:370)
+==2361==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
+==2361==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==2361==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
+==2361==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
+==2361==    by 0x49A7749: fprintf (fprintf.c:32)
+==2361==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96c3d is 5 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Invalid read of size 1
+==2361==    at 0x49D4FE4: _IO_default_xsputn (genops.c:394)
+==2361==    by 0x49D4FE4: _IO_default_xsputn (genops.c:370)
+==2361==    by 0x49D279A: _IO_new_file_xsputn (fileops.c:1264)
+==2361==    by 0x49D279A: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==2361==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
+==2361==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
+==2361==    by 0x49A7749: fprintf (fprintf.c:32)
+==2361==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4AC: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b96c3e is 6 bytes after a block of size 8 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x10B0E3: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B175: insertAvl (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B33A: insertFromBstToAVL (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A1D1: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== Syscall param write(buf) points to uninitialised byte(s)
+==2361==    at 0x4A5BA37: write (write.c:26)
+==2361==    by 0x49D1F6C: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1180)
+==2361==    by 0x49D3A60: new_do_write (fileops.c:448)
+==2361==    by 0x49D3A60: _IO_new_do_write (fileops.c:425)
+==2361==    by 0x49D3A60: _IO_do_write@@GLIBC_2.2.5 (fileops.c:422)
+==2361==    by 0x49D3057: _IO_file_close_it@@GLIBC_2.2.5 (fileops.c:135)
+==2361==    by 0x49C5E0E: fclose@@GLIBC_2.2.5 (iofclose.c:53)
+==2361==    by 0x10B488: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==  Address 0x4b983e8 is 8 bytes inside a block of size 512 alloc'd
+==2361==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2361==    by 0x49C5C23: _IO_file_doallocate (filedoalloc.c:101)
+==2361==    by 0x49D4D5F: _IO_doallocbuf (genops.c:347)
+==2361==    by 0x49D3FDF: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+==2361==    by 0x49D2754: _IO_new_file_xsputn (fileops.c:1243)
+==2361==    by 0x49D2754: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==2361==    by 0x49BE08B: outstring_func (vfprintf-internal.c:239)
+==2361==    by 0x49BE08B: __vfprintf_internal (vfprintf-internal.c:1517)
+==2361==    by 0x49A7749: fprintf (fprintf.c:32)
+==2361==    by 0x10B47C: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10B4C8: printLevel (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361==    by 0x10A22C: main (in /mnt/c/Users/rever/Documents/TemaPa/src/lanParty)
+==2361== 
+==2361== 
+==2361== HEAP SUMMARY:
+==2361==     in use at exit: 0 bytes in 0 blocks
+==2361==   total heap usage: 1,554 allocs, 1,554 frees, 54,029 bytes allocated
+==2361== 
+==2361== All heap blocks were freed -- no leaks are possible
+==2361== 
+==2361== Use --track-origins=yes to see where uninitialised values come from
+==2361== For lists of detected and suppressed errors, rerun with: -s
+==2361== ERROR SUMMARY: 79 errors from 15 contexts (suppressed: 0 from 0)
