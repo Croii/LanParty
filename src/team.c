@@ -21,7 +21,7 @@ void freeTeams(TeamNode **head) {
     (*head) = NULL;
 }
 
-void showTeams(TeamNode *teams, char *outputPath) {
+void printTeams(TeamNode *teams, char *outputPath) {
     FILE *outputFile = fopen(outputPath, "at");
    
     while (teams != NULL) {
