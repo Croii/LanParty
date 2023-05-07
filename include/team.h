@@ -9,7 +9,7 @@ void addTeamAtBeginning(TeamNode **head);
 void addTeamAtEnd(TeamNode **head);
 void readTeams(TeamNode **teams, char *filePath, int *numberOfTeams);
 void removeTeams(TeamNode **teams, char *teamsFilePath, int *numberOfTeams);
-void showTeams(TeamNode *teams, char *outputPath);
+void printTeams(TeamNode *teams, char *outputPath);
 void freeTeams(TeamNode **teams);
 
 #endif

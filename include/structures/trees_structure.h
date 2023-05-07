@@ -3,13 +3,11 @@
 
 #include "team_structure.h"
 
-
 typedef struct treeNode {
-    char *teamName; 
-    float score; 
-    struct treeNode *left ,*right;
+    char *teamName;
+    float score;
+    struct treeNode *left, *right;
     int height;
-}TreeNode;
-
+} TreeNode;
 
 #endif
