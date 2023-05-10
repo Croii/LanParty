@@ -7,61 +7,63 @@
 
 #define EPS 10E-5
 
-// create a queue
+//function used to create a queue of teams
 TeamsQueue *createQueueTeam() {
-    TeamsQueue *q = (TeamsQueue *)malloc(sizeof(TeamsQueue));
+    TeamsQueue *queue = (TeamsQueue *)malloc(sizeof(TeamsQueue));
 
-    if (q == NULL)
+    if (queue == NULL)
         return (TeamsQueue *)NULL;
-    q->front = q->rear = NULL;
+    queue->front = queue->rear = NULL;
 
-    return q;
+    return queue;
 }
 
-int isQueueEmpty(TeamsQueue *q) {
-    return (q->front == NULL);
+//function used to check if a queue is empty
+int isQueueEmpty(TeamsQueue *queue) {
+    return (queue->front == NULL);
 }
 
-TeamNode *deQueueTeam(TeamsQueue *q) {
-    if (isQueueEmpty(q))
+//function used to dequeue a team from a queue and return it
+TeamNode *deQueueTeam(TeamsQueue *queue) {
+    if (isQueueEmpty(queue))
         return (TeamNode *)NULL;
 
-    if (q->front == q->rear) {
-        q->rear = NULL;
-    }
-
+    if (queue->front == queue->rear) 
+        queue->rear = NULL;
+    
     TeamNode *team;
-    team = q->front;
-    q->front = (q->front)->nextTeam;
+    team = queue->front;
+    queue->front = (queue->front)->nextTeam;
     team->nextTeam = NULL;
+
     return team;
 }
-void enQueueTeam(TeamsQueue *q, TeamNode **data) {
-    TeamNode *newNode = *data;
+
+//function used to enqueue a team in a queue
+void enQueueTeam(TeamsQueue *queue, TeamNode **value) {
+    TeamNode *newNode = *value;
 
     // copy data from a given team node
-    /*  newNode->players = data->players;
-     newNode->score = data->score;
-     newNode->teamName = data->teamName; */
     newNode->nextTeam = NULL;
-    if (q->rear == NULL) {
-        q->rear = newNode;
-        q->rear->nextTeam = NULL;
+    if (queue->rear == NULL) {
+        queue->rear = newNode;
+        queue->rear->nextTeam = NULL;
 
     } else {
-        (q->rear)->nextTeam = newNode;
-        (q->rear) = newNode;
+        (queue->rear)->nextTeam = newNode;
+        (queue->rear) = newNode;
     }
 
-    if (q->front == NULL) {
-        q->front = q->rear;
-    }
+    if (queue->front == NULL) 
+        queue->front = queue->rear;
 }
 
+//function used to check if a stack is empty
 int isStackEmpty(TeamNode *top) {
     return (top == NULL);
 }
 
+//function used to pop a team from a stack and return it
 TeamNode *pop(TeamNode **top) {
     if (isStackEmpty(*top))
         return (TeamNode *)NULL;
@@ -72,23 +74,26 @@ TeamNode *pop(TeamNode **top) {
     return team;
 }
 
-void push(TeamNode **top, TeamNode **data) {
-    TeamNode *newNode = *data;
+//function used to push a team in a stack
+void push(TeamNode **top, TeamNode **value) {
+    TeamNode *newNode = *value;
     newNode->nextTeam = *top;
     *top = newNode;
 }
 
-void pushWithDuplicate(TeamNode **top, TeamNode *data) {
+//function used to push a team in a stack with deep copy
+void pushWithDuplicate(TeamNode **top, TeamNode *value) {
     TeamNode *newNode = (TeamNode *)malloc(sizeof(TeamNode));
     // copy data from a given team node
     newNode->teamName = (char *)malloc(sizeof(char) * (strlen(data->teamName) + 1));
     strcpy(newNode->teamName, data->teamName);
     newNode->score = data->score;
     newNode->players = NULL;
-    newNode->nextTeam = *top;
-    *top = newNode;
+    newNode->nextTeam = *value;
+    *value = newNode;
 }
 
+//function used to enqueue all teams from list in a queue
 void preparingMatches(TeamsQueue *teamQueue, TeamNode **head) {
     TeamNode *aux = NULL;
     while (*head != NULL) {
@@ -98,6 +103,7 @@ void preparingMatches(TeamsQueue *teamQueue, TeamNode **head) {
     }
 }
 
+//function used to deallocate memory for a stack
 void freeStack(TeamNode **stackTop) {
     TeamNode *aux = NULL;
     while (!isStackEmpty(*stackTop)) {
@@ -109,13 +115,13 @@ void freeStack(TeamNode **stackTop) {
     }
 }
 
+//function used to print the winners of a particular round
 void printRound(TeamsQueue *teamsQueue, int round, char *outputFilePath) {
     FILE *outputFile = fopen(outputFilePath, "at");
     fprintf(outputFile, "--- ROUND NO:%d\n", round);
     char buffer[100];
     TeamNode *teams = teamsQueue->front;
     while (teams != NULL) {
-        // removeEnding(teams->teamName);
         fprintf(outputFile, "%-33s-%33s\n", teams->teamName, teams->nextTeam->teamName);
 
         teams = teams->nextTeam->nextTeam;
@@ -124,6 +130,7 @@ void printRound(TeamsQueue *teamsQueue, int round, char *outputFilePath) {
     fclose(outputFile);
 }
 
+//function used to simulate the matches and print the winners
 void simulatingMatches(TeamsQueue *teamsQueue, int *numberOfTeams, char *outputFilePath, int task, TeamNode **lastWinners) {
     FILE *outputFile = fopen(outputFilePath, "at");
     fprintf(outputFile, "\n");
@@ -177,9 +184,10 @@ void simulatingMatches(TeamsQueue *teamsQueue, int *numberOfTeams, char *outputF
 
 }
 
-void printQueue(TeamsQueue *q, char *outputFilePath) {
+//function used to print the queue
+void printQueue(TeamsQueue *queue, char *outputFilePath) {
     FILE *outputFile = fopen(outputFilePath, "at");
-    TeamNode *teams = q->front;
+    TeamNode *teams = queue->front;
     fprintf(outputFile, "%c", '\n');
     while (teams != NULL) {
         fprintf(stdout, "%s", teams->teamName);
@@ -188,6 +196,8 @@ void printQueue(TeamsQueue *q, char *outputFilePath) {
     fclose(outputFile);
 }
 
+
+//function used to print the winners of a round from a stack 
 void printWinners(TeamNode *stackTop, char *outputFilePath, int round, int numberOfPlayers) {
     FILE *outputFile = fopen(outputFilePath, "at");
     fprintf(outputFile, "WINNERS OF ROUND NO:%d\n", round);

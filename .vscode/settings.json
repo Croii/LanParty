@@ -10,7 +10,8 @@
         "trees.h": "c",
         "team.h": "c",
         "match.h": "c",
-        "trees_structure.h": "c"
+        "trees_structure.h": "c",
+        "ctype.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

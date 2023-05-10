@@ -7,34 +7,39 @@
 
 #define EPS 10E-6
 
-TreeNode *newNode(TeamNode *data) {
+//function used to create a new node for the tree
+TreeNode *newNode(TeamNode *value) {
     TreeNode *node = (TreeNode *)malloc(sizeof(TreeNode));
-    node->score = data->score;
-    node->teamName = data->teamName;
+    node->score = value->score;
+    node->teamName = value->teamName;
     node->left = node->right = NULL;
     return node;
 }
 
+
+//function used to insert a new node in the tree using a given team node
 TreeNode *insert(TreeNode *node, TeamNode *team) {
     if (node == NULL)
         return newNode(team);
+
     if (team->score < node->score)
         node->left = insert(node->left, team);
+
     else if (team->score >= node->score)
         node->right = insert(node->right, team);
+        
     return node;
 }
 
-//copy contents of value node
+//function used to intialize a bst tree given a team node
 void initBstTree(TreeNode **root, TeamNode *value) {
     *root = (TreeNode *)malloc(sizeof(TreeNode));
-
     (*root)->score = value->score;
     (*root)->teamName = value->teamName;
-
     (*root)->left = (*root)->right = NULL;
 }
 
+//function used to build a bst tree given a team node list
 void buildBstTree(TreeNode *root, TeamNode *team) {
     while (team != NULL) {
         insert(root, team);
@@ -42,7 +47,7 @@ void buildBstTree(TreeNode *root, TeamNode *team) {
     }
 }
 
-// inorder
+//function used to print the tree in descending order
 void printDescending(TreeNode *root, char *outputFilePath) {
 
     if (root->right != NULL)
@@ -56,6 +61,7 @@ void printDescending(TreeNode *root, char *outputFilePath) {
         printDescending(root->left, outputFilePath);
 }
 
+//function used to sort a team node list by name in ascending order
 void sortNodesByName(TeamNode *team) {
     TeamNode *i = team;
     TeamNode *j = NULL;
@@ -78,16 +84,19 @@ void sortNodesByName(TeamNode *team) {
     }
 }
 
+//function used to return the maximum of two integers
 int max(int a, int b) {
     return ((a > b) ? a : b);
 }
 
+//function used to calculate the height of a node
 int nodeHeight(TreeNode *root) {
     if (root == NULL)
         return -1;
     else
         return root->height;
 }
+
 
 TreeNode *LeftRotation(TreeNode *z) {
     TreeNode *y = z->right;
@@ -99,6 +108,7 @@ TreeNode *LeftRotation(TreeNode *z) {
     y->height = max(nodeHeight(y->left), nodeHeight(y->right)) + 1;
     return y;
 }
+
 
 TreeNode *LRRotation(TreeNode *Z) {
     Z->left = LeftRotation(Z->left);
@@ -120,7 +130,8 @@ TreeNode *RightRotation(TreeNode *z) {
     return y;
 }
 
-TreeNode *insertAvl(TreeNode **node, TreeNode *value) {
+//function used to insert a node in an avl tree
+TreeNode *insertToAvl(TreeNode **node, TreeNode *value) {
     // 1. inserare nod
     if (*node == NULL) {
         *node = (TreeNode *)calloc(1, sizeof(TreeNode));
@@ -133,46 +144,43 @@ TreeNode *insertAvl(TreeNode **node, TreeNode *value) {
         return (*node);
     }
     if (value->score <= (*node)->score)
-        (*node)->left = insertAvl(&(*node)->left, value);
+        (*node)->left = insertToAvl(&(*node)->left, value);
     else
-        (*node)->right = insertAvl(&(*node)->right, value);
-    // 2. updateaza inaltimea nodurilor stramos
-    // de jos in sus la iesirea din apelul recurent
+        (*node)->right = insertToAvl(&(*node)->right, value);
+    
+    //update height
     (*node)->height = 1 + max(nodeHeight((*node)->left), nodeHeight((*node)->right));
-    // 3. afla factorul de echilibru al nodului stramos
-    // testul se face de jos in sus ,
-    // pentru toate nodurile intre cel adaugat si radacina
+    
+    //compute balance factor of this node to check whether this node became unbalanced
     int balance = (nodeHeight((*node)->left) - nodeHeight((*node)->right));
-    // 4. daca nodul nu este echilibrat -¿ echilibreaza
-    // LL Case
+
+    //LL Case
     if (balance > 1 && value->score <= (*node)->left->score)
         return RightRotation(*node);
-    // RR Case
-    // k ¡-1 ¡=¿ y este in dreapta
-    // key ¿ valoarea din nodul drept =¿ x in dreapta lui y
+    //RR Case
     else if (balance < -1 && value->score >= (*node)->right->score)
         return LeftRotation((*node));
     // LR Case
-    // k ¿1 ¡=¿ y este in stanga
-    // key ¿ valoarea din nodul stang =¿ x in dreapta lui y
     else if (balance > 1 && value->score >= (*node)->left->score)
         return LRRotation((*node));
     // RL Case
     else if (balance < -1 && value->score <= (*node)->right->score)
         return RLRotation((*node));
+
     return *node;
 }
 
-// postorder
+//function used to insert nodes from a bst tree to an avl tree in inorder traversal
 void insertFromBstToAVL(TreeNode *rootBst, TreeNode **rootAvl) {
     if (rootBst == NULL)
         return;
 
     insertFromBstToAVL(rootBst->right, rootAvl);
-    (*rootAvl) = insertAvl(rootAvl, rootBst);
+    (*rootAvl) = insertToAvl(rootAvl, rootBst);
     insertFromBstToAVL(rootBst->left, rootAvl);
 }
 
+//function used to print the tree in postorder traversal
 void printPostOrder(TreeNode *root, char *outputFilePath) {
     if (root->left) {
         printPostOrder(root->left, outputFilePath);
@@ -185,6 +193,7 @@ void printPostOrder(TreeNode *root, char *outputFilePath) {
     fclose(outputFile);
 }
 
+//function used to print the tree level by level
 void printLevel(TreeNode *root, int level, char *outputFilePath) {
     if (root == NULL)
         return;
@@ -198,12 +207,17 @@ void printLevel(TreeNode *root, int level, char *outputFilePath) {
     }
 }
 
+
+//function used to deallocate the memory used by a tree
 void freeTree(TreeNode **root) {
     if (*root == NULL)
         return;
 
+    //postorder traversal
     freeTree(&(*root)->left);
     freeTree(&(*root)->right);
+    
+    //free the team name and the node
     free((*root)->teamName);
     free(*root);
 }

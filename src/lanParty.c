@@ -10,6 +10,7 @@
 
 #define TASKS 5
 
+//function used to compute scores for one team
 void computeScores(TeamNode *head) {
 
     PlayerNode *player = head->players;
@@ -23,12 +24,14 @@ void computeScores(TeamNode *head) {
     head->score = score / numberOfPlayers;
 }
 
+//function used to compute scores for all teams in a list
 void computeAllScores(TeamNode *head) {
     while (head != NULL) {
         computeScores(head);
         head = head->nextTeam;
     }
 }
+
 
 int main(int argc, char **argv) {
 
@@ -37,9 +40,9 @@ int main(int argc, char **argv) {
     char *teamsFilePath = argv[2];
     char *outputFilePath = argv[3];
 
-    // reading tasks from file
     int tasks[TASKS];
 
+    // reading tasks from file
     FILE *taskFile = fopen(tasksFilePath, "rt");
 
     for (int i = 0; i < TASKS; i++)

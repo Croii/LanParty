@@ -9,6 +9,7 @@
 
 #define EPS 1E-6
 
+//function used to deallocate memory for one TeamNode element
 void freeTeams(TeamNode **head) {
     TeamNode *aux = *head;
     while (*head != NULL) {
@@ -21,6 +22,7 @@ void freeTeams(TeamNode **head) {
     (*head) = NULL;
 }
 
+//function used to print all teams to the output file
 void printTeams(TeamNode *teams, char *outputPath) {
     FILE *outputFile = fopen(outputPath, "at");
 
@@ -32,6 +34,7 @@ void printTeams(TeamNode *teams, char *outputPath) {
     fclose(outputFile);
 }
 
+//function used to read all teams from input file
 void readTeams(TeamNode **teams, char *filePath, int *numberOfTeams) {
     FILE *inputFile = fopen(filePath, "rt");
     int numberOfPlayers = 0;
@@ -41,24 +44,25 @@ void readTeams(TeamNode **teams, char *filePath, int *numberOfTeams) {
     addTeamAtBeginning(&currentTeam);
     *teams = currentTeam;
     fscanf(inputFile, "%d", &numberOfPlayers);
-
+    //reading first team name
     char buffer[50];
     fgetc(inputFile);
     fgets(buffer, 50, inputFile);
+    //removing endline from buffer
     buffer[strlen(buffer) - 2] = 0;
-
+    //removing additional spaces
     for (int i = strlen(buffer); !isalnum(buffer[i]); i--)
         if (buffer[i] == ' ')
             buffer[i] = 0;
 
+    
     currentTeam->teamName = (char *)malloc(strlen(buffer) + 1);
     currentTeam->score = 0;
     strcpy(currentTeam->teamName, buffer);
-
     readPlayers(&currentTeam, numberOfPlayers, inputFile);
 
+    //reading teams data
     for (int teamIndex = 1; teamIndex < *numberOfTeams; teamIndex++) {
-
         fscanf(inputFile, "%d", &numberOfPlayers);
         fgetc(inputFile);
         fgets(buffer, 50, inputFile);
@@ -78,12 +82,14 @@ void readTeams(TeamNode **teams, char *filePath, int *numberOfTeams) {
     fclose(inputFile);
 }
 
+//function used to add an element at the beginning of an TEAMNODE list 
 void addTeamAtBeginning(TeamNode **head) {
     TeamNode *newTeam = (TeamNode *)malloc(sizeof(TeamNode));
     newTeam->nextTeam = *head;
     *head = newTeam;
 }
 
+//function used to add a TeamNode element at the end of a list
 void addTeamAtEnd(TeamNode **head) {
     TeamNode *aux = *head;
     TeamNode *newTeam = (TeamNode *)malloc(sizeof(TeamNode));
@@ -97,7 +103,7 @@ void addTeamAtEnd(TeamNode **head) {
     }
 }
 
-// given the first team, it return the lowest score of all teams
+//function used to determine the lowest score among all teams
 float findLowestScore(TeamNode *head) {
     float lowestScore = __FLT_MAX__;
     while (head != NULL) {
@@ -107,12 +113,15 @@ float findLowestScore(TeamNode *head) {
     }
     return lowestScore;
 }
+
+
+//function to deallocate a list of type TeamNode
 void removeTeams(TeamNode **teams, char *teamsFilePath, int *numberOfTeams) {
 
-    // computing the number of teams knowing that there should be exactly a power of 2
+    //computing the number of teams knowing that there should be exactly a power of 2
     int necessaryNumberOfTeams = (1 << (int)log2f((float)(*numberOfTeams)));
 
-    // removing teams till there are exactly a power of 2 number of teams
+    //removing teams till there are exactly a power of 2 number of teams
     for (int i = 0; i < *numberOfTeams - necessaryNumberOfTeams; i++) {
         float lowestScore = findLowestScore(*teams);
         if (((*teams)->score - lowestScore) < EPS) {
@@ -137,12 +146,12 @@ void removeTeams(TeamNode **teams, char *teamsFilePath, int *numberOfTeams) {
     (*numberOfTeams) = necessaryNumberOfTeams;
 }
 
+//function used to deallocate memory from a TeamNode without freeing it's contents
 void customFreeForList(TeamNode **head) {
     TeamNode *aux = *head;
     while (*head != NULL) {
         aux = (*head)->nextTeam;
         free(*head);
         *head = aux;
-
     }
 }

@@ -12,7 +12,7 @@ TreeNode *RightRotation(TreeNode *z);
 TreeNode *LeftRotation(TreeNode *z);
 int nodeHeight(TreeNode *root);
 int max(int a, int b);
-TreeNode *insertAvl(TreeNode **node, TreeNode *value);
+TreeNode *insertToAvl(TreeNode **node, TreeNode *value);
 
 void printPostOrder(TreeNode *root, char *outputFilePath);
 void printLevel(TreeNode *root, int level, char *outputFilePath);
