@@ -11,7 +11,7 @@
 
 //function used to deallocate memory for one TeamNode element
 void freeTeams(TeamNode **head) {
-    TeamNode *aux = *head;
+    TeamNode *aux;
     while (*head != NULL) {
         free((*head)->teamName);
         freePlayers(&(*head)->players);
@@ -114,7 +114,6 @@ float findLowestScore(TeamNode *head) {
     return lowestScore;
 }
 
-
 //function to deallocate a list of type TeamNode
 void removeTeams(TeamNode **teams, char *teamsFilePath, int *numberOfTeams) {
 
@@ -148,10 +147,32 @@ void removeTeams(TeamNode **teams, char *teamsFilePath, int *numberOfTeams) {
 
 //function used to deallocate memory from a TeamNode without freeing it's contents
 void customFreeForList(TeamNode **head) {
-    TeamNode *aux = *head;
+    TeamNode *aux;
     while (*head != NULL) {
         aux = (*head)->nextTeam;
         free(*head);
         *head = aux;
+    }
+}
+
+//function used to compute scores for one team
+void computeScores(TeamNode *head) {
+
+    PlayerNode *player = head->players;
+    float score = 0;
+    int numberOfPlayers = 0;
+    while (player != NULL) {
+        score += player->points;
+        player = player->nextPlayer;
+        numberOfPlayers++;
+    }
+    head->score = score / numberOfPlayers;
+}
+
+//function used to compute scores for all teams in a list
+void computeAllScores(TeamNode *head) {
+    while (head != NULL) {
+        computeScores(head);
+        head = head->nextTeam;
     }
 }

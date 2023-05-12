@@ -136,7 +136,7 @@ TreeNode *insertToAvl(TreeNode **node, TreeNode *value) {
     if (*node == NULL) {
         *node = (TreeNode *)calloc(1, sizeof(TreeNode));
         (*node)->score = value->score;
-        (*node)->teamName = (char*)malloc(sizeof(value->teamName));
+        (*node)->teamName = (char*)malloc(strlen(value->teamName) + 1);
         strcpy((*node)->teamName, value->teamName);
         (*node)->height = 0;
         // optional

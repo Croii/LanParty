@@ -10,27 +10,8 @@
 
 #define TASKS 5
 
-//function used to compute scores for one team
-void computeScores(TeamNode *head) {
 
-    PlayerNode *player = head->players;
-    float score = 0;
-    int numberOfPlayers = 0;
-    while (player != NULL) {
-        score += player->points;
-        player = player->nextPlayer;
-        numberOfPlayers++;
-    }
-    head->score = score / numberOfPlayers;
-}
 
-//function used to compute scores for all teams in a list
-void computeAllScores(TeamNode *head) {
-    while (head != NULL) {
-        computeScores(head);
-        head = head->nextTeam;
-    }
-}
 
 
 int main(int argc, char **argv) {

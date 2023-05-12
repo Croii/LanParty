@@ -11,5 +11,7 @@ void readTeams(TeamNode **teams, char *filePath, int *numberOfTeams);
 void removeTeams(TeamNode **teams, char *teamsFilePath, int *numberOfTeams);
 void printTeams(TeamNode *teams, char *outputPath);
 void freeTeams(TeamNode **teams);
+void computeAllScores(TeamNode *head);
+void computeScores(TeamNode *head);
 
 #endif

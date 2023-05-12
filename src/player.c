@@ -70,7 +70,7 @@ void addPlayerAtEnd(PlayerNode **head) {
 
 //function used to free all players from a list
 void freePlayers(PlayerNode **head) {
-    PlayerNode *aux = *head;
+    PlayerNode *aux;
     while (*head != NULL) {
         free((*head)->secondName);
         free((*head)->firstName);
