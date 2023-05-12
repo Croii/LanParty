@@ -4,6 +4,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 #define EPS 10E-5
 
@@ -82,15 +83,16 @@ void push(TeamNode **top, TeamNode **value) {
 }
 
 //function used to push a team in a stack with deep copy
+//ignoring the players field
 void pushWithDuplicate(TeamNode **top, TeamNode *value) {
     TeamNode *newNode = (TeamNode *)malloc(sizeof(TeamNode));
     // copy data from a given team node
-    newNode->teamName = (char *)malloc(sizeof(char) * (strlen(data->teamName) + 1));
-    strcpy(newNode->teamName, data->teamName);
-    newNode->score = data->score;
+    newNode->teamName = (char *)malloc(sizeof(char) * (strlen(value->teamName) + 1));
+    strcpy(newNode->teamName, value->teamName);
+    newNode->score = value->score;
     newNode->players = NULL;
-    newNode->nextTeam = *value;
-    *value = newNode;
+    newNode->nextTeam = *top;
+    *top = newNode;
 }
 
 //function used to enqueue all teams from list in a queue

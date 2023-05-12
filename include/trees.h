@@ -1,6 +1,6 @@
 #include "structures//trees_structure.h"
 
-TreeNode *newNode(TeamNode *data);
+TreeNode *newNode(TeamNode *value);
 void initBstTree(TreeNode **root, TeamNode *value);
 TreeNode *insert(TreeNode *node, TeamNode *team);
 void buildBstTree(TreeNode *root, TeamNode *team);
