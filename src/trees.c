@@ -221,3 +221,4 @@ void freeTree(TreeNode **root) {
     free((*root)->teamName);
     free(*root);
 }
+

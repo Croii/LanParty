@@ -54,13 +54,10 @@ void readTeams(TeamNode **teams, char *filePath, int *numberOfTeams) {
     for (int i = strlen(buffer); !isalnum(buffer[i]); i--)
         if (buffer[i] == ' ')
             buffer[i] = 0;
-
-    
     currentTeam->teamName = (char *)malloc(strlen(buffer) + 1);
     currentTeam->score = 0;
     strcpy(currentTeam->teamName, buffer);
     readPlayers(&currentTeam, numberOfPlayers, inputFile);
-
     //reading teams data
     for (int teamIndex = 1; teamIndex < *numberOfTeams; teamIndex++) {
         fscanf(inputFile, "%d", &numberOfPlayers);
@@ -70,14 +67,12 @@ void readTeams(TeamNode **teams, char *filePath, int *numberOfTeams) {
         // buffer[strlen(buffer) - 2] = 0;
         if (buffer[strlen(buffer) - 1] == ' ')
             buffer[strlen(buffer) - 1] = 0;
-
         addTeamAtBeginning(&currentTeam);
         currentTeam->teamName = (char *)malloc(strlen(buffer) + 1);
         strcpy(currentTeam->teamName, buffer);
         readPlayers(&currentTeam, numberOfPlayers, inputFile);
         fgetc(inputFile);
     }
-
     *teams = currentTeam;
     fclose(inputFile);
 }

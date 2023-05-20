@@ -1,6 +1,7 @@
 #include "..//include//match.h"
 #include "..//include//player.h"
-#include "../include//team.h"
+#include "..//include//team.h"
+
 
 #include <stdlib.h>
 #include <string.h>
@@ -137,12 +138,10 @@ void simulatingMatches(TeamsQueue *teamsQueue, int *numberOfTeams, char *outputF
     FILE *outputFile = fopen(outputFilePath, "at");
     fprintf(outputFile, "\n");
     fclose(outputFile);
-
     TeamNode *losersStack = NULL;
     TeamNode *winnersStack = NULL;
     int round = 1;
     while (*numberOfTeams > 1) {
-
         printRound(teamsQueue, round, outputFilePath);
         for (int i = 0; i < *numberOfTeams / 2; i++) {
             TeamNode *firstTeam = deQueueTeam(teamsQueue);
@@ -151,16 +150,13 @@ void simulatingMatches(TeamsQueue *teamsQueue, int *numberOfTeams, char *outputF
                 firstTeam->score = firstTeam->score + 1;
                 push(&winnersStack, &firstTeam);
                 push(&losersStack, &secondTeam);
-
             } else {
                 secondTeam->score = secondTeam->score + 1;
                 push(&winnersStack, &secondTeam);
                 push(&losersStack, &firstTeam);
             }
         }
-
         printWinners(winnersStack, outputFilePath, round, *numberOfTeams);
-
         if (*numberOfTeams == 16 && task) {
             TeamNode *aux = winnersStack;
             while (aux != NULL) {
@@ -172,19 +168,16 @@ void simulatingMatches(TeamsQueue *teamsQueue, int *numberOfTeams, char *outputF
             TeamNode *aux = pop(&winnersStack);
             enQueueTeam(teamsQueue, &aux);
         }
-
         freeStack(&losersStack);
         losersStack = NULL;
         *numberOfTeams /= 2;
-
         round++;
     }
-
     freePlayers(&teamsQueue->front->players);
     free(teamsQueue->front->teamName);
     free(teamsQueue->front);
-
 }
+
 
 //function used to print the queue
 void printQueue(TeamsQueue *queue, char *outputFilePath) {
