@@ -125,7 +125,7 @@ void printRound(TeamsQueue *teamsQueue, int round, char *outputFilePath) {
     char buffer[100];
     TeamNode *teams = teamsQueue->front;
     while (teams != NULL) {
-        fprintf(outputFile, "%-33s-%33s\n", teams->teamName, teams->nextTeam->teamName);
+        fprintf(outputFile, "%-32s - %32s\n", teams->teamName, teams->nextTeam->teamName);
 
         teams = teams->nextTeam->nextTeam;
     }
@@ -197,7 +197,7 @@ void printWinners(TeamNode *stackTop, char *outputFilePath, int round, int numbe
     FILE *outputFile = fopen(outputFilePath, "at");
     fprintf(outputFile, "WINNERS OF ROUND NO:%d\n", round);
     while (stackTop != NULL) {
-        fprintf(outputFile, "%-34s-  %0.2f\n", stackTop->teamName, stackTop->score);
+        fprintf(outputFile, "%-32s  -  %.2f\n", stackTop->teamName, stackTop->score);
         stackTop = stackTop->nextTeam;
     }
 
