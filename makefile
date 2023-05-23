@@ -1,7 +1,6 @@
 #first makefile ever
 build:
-	gcc -Wunused-function src/player.c src/team.c src/lanParty.c src/match.c src/trees.c -o ./src/lanParty -lm
-	
+	gcc -Wall -Wunused-function src/player.c src/team.c src/lanParty.c src/match.c src/trees.c -o ./src/lanParty -lm
 run:
 	./src/lanParty src/ioFiles/c.in src/ioFiles/d.in src/ioFiles/r.out
 

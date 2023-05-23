@@ -132,7 +132,7 @@ TreeNode *RightRotation(TreeNode *z) {
 
 //function used to insert a node in an avl tree
 TreeNode *insertToAvl(TreeNode **node, TreeNode *value) {
-    // 1. inserare nod
+    //insert node in bst tree
     if (*node == NULL) {
         *node = (TreeNode *)calloc(1, sizeof(TreeNode));
         (*node)->score = value->score;
@@ -140,7 +140,7 @@ TreeNode *insertToAvl(TreeNode **node, TreeNode *value) {
         strcpy((*node)->teamName, value->teamName);
         (*node)->height = 0;
         // optional
-        (*node)->left = (*node)->right = NULL;
+        //(*node)->left = (*node)->right = NULL;
         return (*node);
     }
     if (value->score <= (*node)->score)

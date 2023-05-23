@@ -1,0 +1,5 @@
+==2533== Memcheck, a memory error detector
+==2533== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2533== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2533== Command: ./src/lanParty checker/date/t7/c.in checker/date/t7/d.in checker/out/out7.out
+==2533== 

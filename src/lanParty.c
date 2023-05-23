@@ -39,7 +39,6 @@ void runTasks(int tasks[], char *outputFilePath, TeamNode **teams, int *numberOf
     }
     if (tasks[2]) {
         *teamsQueue = createQueueTeam();
-        int taskToExecute = 3;
         preparingMatches(*teamsQueue, teams);
         simulatingMatches(*teamsQueue, numberOfTeams, outputFilePath, tasks[3] || tasks[4], lastWinners);
         free(*teamsQueue);
@@ -101,5 +100,5 @@ int main(int argc, char **argv) {
 
     runTasks(tasks, outputFilePath, &teams, &numberOfTeams, &teamsQueue, &lastWinners, &rootBst, &rootAvl);
 
-    freeAll(&teams, &rootBst, &rootAvl);
+    //freeAll(&teams, &rootBst, &rootAvl);
 }

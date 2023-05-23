@@ -122,7 +122,6 @@ void freeStack(TeamNode **stackTop) {
 void printRound(TeamsQueue *teamsQueue, int round, char *outputFilePath) {
     FILE *outputFile = fopen(outputFilePath, "at");
     fprintf(outputFile, "--- ROUND NO:%d\n", round);
-    char buffer[100];
     TeamNode *teams = teamsQueue->front;
     while (teams != NULL) {
         fprintf(outputFile, "%-32s - %32s\n", teams->teamName, teams->nextTeam->teamName);
